@@ -27,7 +27,9 @@
 15. Province : One of the ten Belgium provinces.
 16. Region : One of the 3 Belgium region.
 17. PriceperMeter : A float number in euros
- 
+
+## WorkFlow
+The different
 ## Data analysis
 
 Some insights on the dataset. 
@@ -42,9 +44,40 @@ Some features needed to be transformed to be able to train and test our model wi
 Here are the said transformation and the respective library used:
 
 - One-Hot encoding the categorical columns => [One-Hot Encoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
-- Scaling the numerical columns and the encoded categorical columns => [StandardSclaer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
+- Scaling the numerical columns and the encoded categorical columns => [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 - Handle the missing data in the dataset => [SimpleImputer](https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html)
+- Separating the data between the train and the test set => [train_test_split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html?highlight=train_test_split#sklearn.model_selection.train_test_split)
 
 The preprocessing steps described above were carried through two separate pipelines. A numerical_pipeline for the numerical columns and a categorical_pipeline for the categorical values. 
 I used the convenient [make_pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html) and [make_column_transformer](https://scikit-learn.org/stable/modules/generated/sklearn.compose.make_column_transformer.html) from Scikit-Learn to configure those pipelines.
 
+
+## Determining a baseline for the model
+In this step I calculated what the results of a prediction model would be if we only guessed at property prices. 
+The purpose of this is to have a basis for better understanding the results of our future model.
+I used the [DummyClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html).
+
+#### The baseline for our model
+- Mean squared error : 159931446339.08014
+- Mean absolute error : 173117.60024260395
+- Explained variance score : 0.0
+- r2 score : -0.10401510078632081
+
+## Model selection and hyperparameter tuning
+
+Trough multiple steps of trials I tested multiples models and configuration. 
+The that gave me the best results was Xgboost with a BaggingRegressor. 
+I used GridSearch(https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
+to find the best hyperparameters.
+
+## Model Evaluation
+Here are the results of the model against the testing data : 
+
+- Mean squared error : 31022727615.411995
+- Mean absolute error : 86094.01882551557
+- Explained variance score : 0.7577142613146228
+- r2 score : 0.7574321295725
+
+## Results intrpretation
+In the context of predicting a price, the objective is to get the MAE as close as possible to zero, which would mean that the price is estimated to be correct.
+It can be observed that the MSE and MAE have decreased significantly.The EAW has almost halved but is still quite high compared to Belgian property prices.
