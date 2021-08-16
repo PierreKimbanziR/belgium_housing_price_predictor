@@ -2,7 +2,7 @@
 
 ## Objectives
 - Create a prediction model whose target is the price of a property located in any locality in Belgium. 
-- Get the most accurate model possible in other terms the lowest mean squared error possible.
+- Get the most accurate model possible in other terms the lowest mean absolute error possible on the prediciton of a given property.
 - Implement an user interface to let anyone predict the price of a property. 
 
 ## Dataset description
@@ -10,10 +10,10 @@
 ### Shape 
 - The dataset is initially composed of 60 000 entries and 17 features each.
 #### Features list 
-1. Locality : The locality where the property is situated.
+1. Locality : The locality where the property is located.
 2. Type of property : Either "house" or "appartment".
 3. Price : A float number in euros.
-4. Number of rooms : A float
+4. Number of rooms : A float number.
 5. Area : A float in square meter.
 6. Fully equipped kitchen : A boolean either true or false.
 7. Furnished : *Does the property come in with furniture ?* A boolean either true or false.
@@ -30,7 +30,11 @@
  
 ## Data analysis
 
-I tried to get some insights from the data before
+Some insights on the dataset. 
+
+Correlations : 
+
+Heatmap : 
 
 ## Data preprocessing
 
@@ -40,3 +44,7 @@ Here are the said transformation and the respective library used:
 - One-Hot encoding the categorical columns => [One-Hot Encoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
 - Scaling the numerical columns and the encoded categorical columns => [StandardSclaer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
 - Handle the missing data in the dataset => [SimpleImputer](https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html)
+
+The preprocessing steps described above were carried through two separate pipelines. A numerical_pipeline for the numerical columns and a categorical_pipeline for the categorical values. 
+I used the convenient [make_pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html) and [make_column_transformer](https://scikit-learn.org/stable/modules/generated/sklearn.compose.make_column_transformer.html) from Scikit-Learn to configure those pipelines.
+
