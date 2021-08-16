@@ -1,7 +1,7 @@
 # Belgium Real Estate Price Predicition
 
 ## Objectives
-- Create a prediction model whose unknown is the price of a property located in any commune of Belgium. 
+- Create a prediction model whose target is the price of a property located in any locality in Belgium. 
 - Get the most accurate model possible in other terms the lowest mean squared error possible.
 - Implement an user interface to let anyone predict the price of a property. 
 
