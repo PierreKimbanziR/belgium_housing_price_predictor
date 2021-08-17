@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import os
 import webbrowser
-
+from bokeh.models.widgets import Div
 cwd = os.getcwd()  # Get the current working directory (cwd)
 model = pickle.load(open(cwd + "/estimator.pkl", "rb"))
 
@@ -134,8 +134,8 @@ def main():
         if st.button('Take a look at the code'):
             js = "window.open('https://www.streamlit.io/')"  # New tab or window
             js = "window.location.href = 'https://www.streamlit.io/'"  # Current tab
-            html = '<img src onerror="{}">'.format(js)
-            div = st.Div(text=html)
+            html = '<img src onerror="{}">'.format(ldk)
+            div = Div(text=html)
             st.bokeh_chart(div)
 
     if st.button("Estimate the property"):
