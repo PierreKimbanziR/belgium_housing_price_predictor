@@ -111,21 +111,18 @@ def main():
         columns=columns,
     )
 
-    with st.sidebar:
-        lkd = "https://www.linkedin.com/in/pierre-kimbanzi-ruganda/"
-        gth = "https://github.com/PierreKimbanziR"
-        st.header("Belgium real-estate price estimation")
+    side_text = st.sidebar.write(
         """
-        
-        
-        ### Links
+        ## Get in touch  
 
-        
+        [Find me on Linkedin](https://www.linkedin.com/in/pierre-kimbanzi-ruganda/)  
+        [Find me on Github](https://github.com/PierreKimbanziR)  
+        [Take a look at the code behind this project](https://github.com/PierreKimbanziR/belgium_housing_price_predictor)
+
+
         """
-        if st.button("Github repository"):
-            webbrowser.open(gth)
-        if st.button("Find me on linkedin"):
-            webbrowser.open(lkd)
+
+    )
 
     if st.button("Estimate the property"):
         result = model.predict(df)
