@@ -34,7 +34,7 @@ def main():
         "Please enter the property's postal code.", min_value=1000, max_value=9999
     )
     region = st.selectbox(
-        "Select th region of the property", ("Flanders", "Wallonia", "Brussel")
+        "Select the region of the property", ("Flanders", "Wallonia", "Brussel")
     )
     province = st.selectbox(
         "Select the province of the property",
@@ -58,16 +58,16 @@ def main():
         "Please enter the area (in m²) of the property.", min_value=0, max_value=1000
     )
     number_of_room = st.select_slider(
-        "how many rooms there are in the property",
+        "How many rooms there are in the property",
         options=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     )
     state_of_building = st.select_slider(
-        "what state the property is in",
+        "What is the condition of the property? ",
         options=["to renovate", "medium", "good", "new"],
     )
     st.write("_____________________________________________________")
     fully_equipped_kitchen = st.selectbox(
-        "Is your Kitchen fully equipped?", ["No", "Yes"]
+        "Is your Kitchen fully equipped ?", ["No", "Yes"]
     )
     furnished = st.selectbox("Is your house is sell furnished?", ["No", "Yes"])
     open_fire = st.selectbox("Do you have an open fire?", ["No", "Yes"])
@@ -79,8 +79,8 @@ def main():
     garden_area = st.number_input(
         "Enter the area of your garden", min_value=0, max_value=100000000
     )
-    number_of_facades = st.selectbox("What is the number of facades?", [2, 3, 4])
-    swimming_pool = st.selectbox("Do you have a swimming pool?", ["No", "Yes"])
+    number_of_facades = st.selectbox("How many facades does the property have ? ", [2, 3, 4])
+    swimming_pool = st.selectbox("Do you have a swimming pool ?", ["No", "Yes"])
     surface_of_the_land = area + terrace_area + garden_area
 
     fully_equipped_kitchen = 1 if fully_equipped_kitchen == "Yes" else 0
@@ -129,7 +129,7 @@ def main():
 
     if st.button("Estimate the property"):
         result = model.predict(df)
-        st.success(f"The estimated price of the property is {result[0]}")
+        st.success(f"The estimated price of the property is {result[0]} euros")
 
 
 if __name__ == "__main__":
