@@ -125,7 +125,7 @@ def main():
     link_2 = st.sidebar.markdown(github, unsafe_allow_html=True)
     link_3 = st.sidebar.markdown(github_project, unsafe_allow_html=True)
 
-    if st.button("Estimate the property"):
+    if st.button("Estimate the price"):
         result = model.predict(df)
         st.success(f"The estimated price of the property is {round(result[0])} euros")
 
