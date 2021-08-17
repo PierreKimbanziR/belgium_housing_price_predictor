@@ -18,7 +18,7 @@ columns = x.columns
 
 st.title("Estimate the price of your property")
 
-st.subheader("A new approach to real-estate prices definition")
+st.subheader("Artificial intelligence powered price estimation.")
 
 
 def main():
