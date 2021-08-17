@@ -111,22 +111,36 @@ def main():
         columns=columns,
     )
 
-    side_text = st.sidebar.write(
-        """
-        ## Get in touch  
+    # side_text = st.sidebar.write(
+    #     """
+    #     ## Get in touch  
 
-        [Find me on Linkedin](https://www.linkedin.com/in/pierre-kimbanzi-ruganda/)  
-        [Find me on Github](https://github.com/PierreKimbanziR)  
-        [Take a look at the code behind this project](https://github.com/PierreKimbanziR/belgium_housing_price_predictor)
+    #     [Find me on Linkedin](https://www.linkedin.com/in/pierre-kimbanzi-ruganda/)  
+    #     [Find me on Github](https://github.com/PierreKimbanziR)  
+    #     [Take a look at the code behind this project](https://github.com/PierreKimbanziR/belgium_housing_price_predictor)
 
 
-        """
+    #     """
 
-    )
+    # )
+    with st.sidebar:
+        ldk = "https://www.linkedin.com/in/pierre-kimbanzi-ruganda/"
+        gth = "https://github.com/PierreKimbanziR"
+        gthpro = "https://github.com/PierreKimbanziR/belgium_housing_price_predictor"
 
     if st.button("Estimate the property"):
         result = model.predict(df)
         st.success(f"The estimated price of the property is {round(result[0])} euros")
+
+        """
+        Links
+        """
+        if st.button('Take a look at the code'):
+            js = "window.open('https://www.streamlit.io/')"  # New tab or window
+            js = "window.location.href = 'https://www.streamlit.io/'"  # Current tab
+            html = '<img src onerror="{}">'.format(js)
+            div = st.Div(text=html)
+            st.bokeh_chart(div)
 
 
 if __name__ == "__main__":
