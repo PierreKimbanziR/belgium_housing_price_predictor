@@ -128,19 +128,19 @@ def main():
         gth = "https://github.com/PierreKimbanziR"
         gthpro = "https://github.com/PierreKimbanziR/belgium_housing_price_predictor"
 
-    if st.button("Estimate the property"):
-        result = model.predict(df)
-        st.success(f"The estimated price of the property is {round(result[0])} euros")
+        if st.button("Estimate the property"):
+            result = model.predict(df)
+            st.success(f"The estimated price of the property is {round(result[0])} euros")
 
-        """
-        Links
-        """
-        if st.button('Take a look at the code'):
-            js = "window.open('https://www.streamlit.io/')"  # New tab or window
-            js = "window.location.href = 'https://www.streamlit.io/'"  # Current tab
-            html = '<img src onerror="{}">'.format(js)
-            div = st.Div(text=html)
-            st.bokeh_chart(div)
+            """
+            Links
+            """
+            if st.button('Take a look at the code'):
+                js = "window.open('https://www.streamlit.io/')"  # New tab or window
+                js = "window.location.href = 'https://www.streamlit.io/'"  # Current tab
+                html = '<img src onerror="{}">'.format(js)
+                div = st.Div(text=html)
+                st.bokeh_chart(div)
 
 
 if __name__ == "__main__":
