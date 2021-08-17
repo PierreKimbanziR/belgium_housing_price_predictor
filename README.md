@@ -1,10 +1,19 @@
 # Belgium Real Estate Price Predicition
 
+[Try it out](https://share.streamlit.io/pierrekimbanzir/belgium_housing_price_predictor/main/app.py)
 ## Objectives 
 
 - Create a prediction model whose target is the price of a property located in any locality in Belgium. 
 - Get the most accurate model possible in other terms the lowest mean absolute error possible on the prediciton of a given property.
-- Implement an user interface to let anyone predict the price of a property. 
+- Implement an user interface to let anyone predict the price of a property.  
+
+## Technologies
+- Pandas
+- Scikit-learn
+- Seaborn
+- Streamlit
+- XgBoost
+- Python 3.8.10  
 
 ## Dataset description
 - The training and test dataset comes from data scrapped by myself from the site [Immoweb](https://www.immoweb.be/) and [LogicImmo](https://www.logic-immo.be/).
@@ -149,6 +158,5 @@ To go even deeper into the information available for each property, one could re
 
 
 ## User Interface/Web app
-The user interface has been programmed with [Streamlit](https://streamlit.io/). 
-
+The user interface has been programmed with [Streamlit](https://streamlit.io/). And can be found [here](https://share.streamlit.io/pierrekimbanzir/belgium_housing_price_predictor/main/app.py).
 
