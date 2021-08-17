@@ -62,7 +62,8 @@ Price correlation with the other features :
 - Swimming pool             0.230451
 - PriceperMeter             0.277311  
 
-Heatmap : 
+Heatmap :  
+
 ![heatmap](assets/images/heatmap.png)
 ## Data preprocessing
 
