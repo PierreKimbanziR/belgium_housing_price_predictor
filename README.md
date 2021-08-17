@@ -38,10 +38,24 @@ The different
 ## Data analysis
 Some insights on the dataset. 
 
-Correlations : 
+Price correlation with the other features : 
+
+Locality                 -0.130485  
+Price                     1.000000  
+Number of rooms           0.358333
+Area                      0.566414
+Fully equipped kitchen    0.130774
+Furnished                -0.021918
+Open fire                 0.172021
+Terrace Area              0.075740
+Garden Area               0.072211
+Surface of the land       0.090717
+Number of facades         0.148417
+Swimming pool             0.230451
+PriceperMeter             0.277311  
 
 Heatmap : 
-
+![heatmap](assets/images/heatmap.png)
 ## Data preprocessing
 
 Some features needed to be transformed to be able to train and test our model with it. 
@@ -74,7 +88,7 @@ I used the [DummyClassifier](https://scikit-learn.org/stable/modules/generated/s
 
 Trough multiple steps of trials I tested multiples models and configuration. 
 The that gave me the best results was Xgboost with a BaggingRegressor. 
-I used GridSearch(https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
+I used [GridSearch](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
 to find the best hyperparameters.
 
 ## Model Evaluation
@@ -87,29 +101,37 @@ Here are the results of the model against the testing data :
 
 ## Results interpretation
 
-When estimating the price of something I think the main indicator to take into consideration is the MAE (Mean Absolute Error).
-*Why the MAE instead of the MSE?*
+When estimating the price of something I think the main indicator to take into consideration is the MAE (Mean Absolute Error).  
+
+*Why the MAE instead of the MSE?*  
+
 Because it will give us on average the difference between our predicted price and the target price.
 Moreover, it is much easier to interpret it in the scale of our real data. 
 Another argument is that the size of an error is linear with its magnitude. 
 In view of these points, it is more logical to rely on the MAE.   
-It can be observed that the MAE have decreased significantly, its almost halved.
+It can be observed that the MAE have decreased significantly, its almost halved.  
+
 On average there is a 80 000 euros difference between the price estimated by the model and the actual price. 
 In reflexion to the prices available on the belgian market its still quite a high difference. 
 
 ## Possible improvements
-As the data cleaning and hyperparameter tuning has already been done in depth, I think the main focus should be on adding new features. 
+As the data cleaning and hyperparameter tuning has already been done in depth, I think the main focus should be on adding new features.  
+
 For example we could add the median price of the locality for each property. This information could be calculated by hand with the data already obtained but this could be dangerous. 
 *Why? because the number of properties listed for sale per locality varies greatly. Let's say we compare 2 communes, commune A and commune B. 
-In commune A there are 300 houses for sale while in commune B there is only one. The median price of commune A would be representative of the commune prices but the median price of commune B would be the exact price of the one property listed for sale in the commune. 
+In commune A there are 300 houses for sale while in commune B there is only one. The median price of commune A would be representative of the commune prices but the median price of commune B would be the exact price of the one property listed for sale in the commune.  
+
 To remedy this we could incorporate the median prices per locality listed on [StatBel](https://statbel.fgov.be/en)
 To go even deeper into the information available for each property, one could retrieve information on the neighbourhood in which the property is located. Here are some questions that could be interesting and determining in the price of a house or a flat.
 
-*How far away is the nearest public transport?*
-*How far is it to the schools?*
-*How far is it to the nearest supermarket?*
-*How long does it take for the emergency services to get to the house?*
-*etc*
+*How far away is the nearest public transport?*  
+
+*How far is it to the schools?*  
+
+*How far is it to the nearest supermarket?*  
+
+*How long does it take for the emergency services to get to the house?*  
+
 
 
 
