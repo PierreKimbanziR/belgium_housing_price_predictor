@@ -25,6 +25,8 @@ def main():
     st.write(
         """
         #### To evaluate the price of your property we will need a few infomations.  
+
+        
         """
     )
     type_of_property = st.selectbox(
