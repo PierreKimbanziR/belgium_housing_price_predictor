@@ -33,26 +33,34 @@
 17. PriceperMeter : A float number in euros
 
 ## WorkFlow
+The following steps will be explored in more details below
 
-The different
+1. Data analysis
+2. Data preprocessing
+3. Determining the model baseline
+4. Model selection
+5. Model training
+6. Hyperparameter tuning
+7. Model evaluation
+8. Results interpretation
 ## Data analysis
 Some insights on the dataset. 
 
 Price correlation with the other features : 
 
-Locality                 -0.130485  
-Price                     1.000000  
-Number of rooms           0.358333
-Area                      0.566414
-Fully equipped kitchen    0.130774
-Furnished                -0.021918
-Open fire                 0.172021
-Terrace Area              0.075740
-Garden Area               0.072211
-Surface of the land       0.090717
-Number of facades         0.148417
-Swimming pool             0.230451
-PriceperMeter             0.277311  
+- Locality                 -0.130485  
+- Price                     1.000000  
+- Number of rooms           0.358333
+- Area                      0.566414
+- Fully equipped kitchen    0.130774
+- Furnished                -0.021918
+- Open fire                 0.172021
+- Terrace Area              0.075740
+- Garden Area               0.072211
+- Surface of the land       0.090717
+- Number of facades         0.148417
+- Swimming pool             0.230451
+- PriceperMeter             0.277311  
 
 Heatmap : 
 ![heatmap](assets/images/heatmap.png)
@@ -84,12 +92,18 @@ I used the [DummyClassifier](https://scikit-learn.org/stable/modules/generated/s
 - r2 score : -0.10401510078632081
 
 
-## Model selection and hyperparameter tuning
+## Model selection
 
 Trough multiple steps of trials I tested multiples models and configuration. 
-The that gave me the best results was Xgboost with a BaggingRegressor. 
-I used [GridSearch](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
-to find the best hyperparameters.
+The that gave me the best results was Xgboost with a BaggingRegressor.
+[BaggingRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingRegressor.html)
+[Xgboost](https://xgboost.readthedocs.io/en/latest/python/python_api.html)
+
+## Model training
+The full dataset was split with a proportion of 0.8 for the training dataset.
+
+## Hyperparameter Tuning
+I used [GridSearch](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) to find the best hyperparameters.
 
 ## Model Evaluation
 Here are the results of the model against the testing data : 
@@ -133,6 +147,7 @@ To go even deeper into the information available for each property, one could re
 *How long does it take for the emergency services to get to the house?*  
 
 
-
+## User Interface/Web app
+The user interface has been programmed with [Streamlit](https://streamlit.io/). 
 
 
