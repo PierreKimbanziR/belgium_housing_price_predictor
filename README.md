@@ -17,6 +17,7 @@
 
 ## Dataset description
 - The training and test dataset comes from data scrapped by myself from the site [Immoweb](https://www.immoweb.be/) and [LogicImmo](https://www.logic-immo.be/).
+The cleaned dataset is available [here](https://raw.githubusercontent.com/PierreKimbanziR/belgium_housing_price_predictor/main/assets/data/housing_data.csv)
 
 ### Shape
 
